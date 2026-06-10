@@ -1004,12 +1004,31 @@
     const isActive = content.classList.contains('active');
     
     // Close all other services
-    document.querySelectorAll('.service-content').forEach(c => {
-      c.classList.remove('active');
-    });
-    document.querySelectorAll('.service-dropdown-btn').forEach(b => {
-      b.classList.remove('active');
-    });
+function toggleService(btn) {
+  const card = btn.closest('.border-2'); // the whole service box
+  const content = btn.nextElementSibling;
+  const isActive = content.classList.contains('active');
+
+  // ONLY close items inside THIS card group
+  const container = card.parentElement;
+
+  container.querySelectorAll('.service-content').forEach(c => {
+    if (c !== content) c.classList.remove('active');
+  });
+
+  container.querySelectorAll('.service-dropdown-btn').forEach(b => {
+    if (b !== btn) b.classList.remove('active');
+  });
+
+  // toggle clicked one
+  if (!isActive) {
+    content.classList.add('active');
+    btn.classList.add('active');
+  } else {
+    content.classList.remove('active');
+    btn.classList.remove('active');
+  }
+}
     
     // Toggle current service
     if (!isActive) {
