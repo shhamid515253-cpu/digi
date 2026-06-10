@@ -60,7 +60,18 @@
       color: rgb(107, 83, 68);
       box-shadow: 0 4px 15px rgba(107, 83, 68, 0.08);
     }
+    .service-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+    @media (max-width: 1100px) {
+  grid-template-columns: repeat(2, 1fr);
+}
 
+@media (max-width: 600px) {
+  grid-template-columns: 1fr;
+}
     .service-dropdown-btn:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 25px rgba(107, 83, 68, 0.12);
@@ -671,7 +682,7 @@
       <h2 class="text-center mb-4 reveal" style="color: rgb(107, 83, 68); font-weight: 700; font-size: 27px;">My Services</h2>
       <p class="text-center mb-16 reveal" style="color: rgb(93, 74, 64); font-weight: 400; font-size: 18px;">Comprehensive design solutions for creative design & digital marketing</p>
       
-      <div class="space-y-4 reveal">
+      <div class="service-grid reveal">
         
         <!-- Service 1: Graphic Design & Branding -->
         <div class="border-2 border-transparent rounded-2xl" style="background: white; box-shadow: 0 4px 15px rgba(107, 83, 68, 0.08);">
