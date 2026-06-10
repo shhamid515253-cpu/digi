@@ -43,19 +43,83 @@
     .project-card:nth-child(odd) { transform: rotate(-1deg); }
     .project-card:nth-child(even) { transform: rotate(1deg); }
 
-    .service-category { transition: all 0.4s ease; }
-    .service-category:hover { transform: translateY(-8px); }
+    /* SERVICE DROPDOWN STYLES */
+    .service-dropdown-btn {
+      width: 100%;
+      padding: 18px 20px;
+      border: none;
+      border-radius: 20px;
+      background: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: 600;
+      font-size: 16px;
+      color: rgb(107, 83, 68);
+      box-shadow: 0 4px 15px rgba(107, 83, 68, 0.08);
+    }
 
-    .service-list { list-style: none; padding: 0; margin: 0; }
-    .service-list li { 
-      padding: 10px 0;
+    .service-dropdown-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(107, 83, 68, 0.12);
+    }
+
+    .service-dropdown-btn.active {
+      background: rgb(212, 138, 154);
+      color: white;
+      box-shadow: 0 8px 20px rgba(212, 138, 154, 0.3);
+    }
+
+    .service-dropdown-btn .icon {
+      font-size: 24px;
+      margin-right: 12px;
+    }
+
+    .service-dropdown-btn .chevron {
+      transition: transform 0.3s ease;
+      font-size: 20px;
+    }
+
+    .service-dropdown-btn.active .chevron {
+      transform: rotate(180deg);
+    }
+
+    .service-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease, opacity 0.4s ease;
+      opacity: 0;
+      padding: 0 20px;
+    }
+
+    .service-content.active {
+      max-height: 500px;
+      opacity: 1;
+      padding: 20px;
+    }
+
+    .service-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .service-list li {
+      padding: 12px 0;
       border-bottom: 1px solid rgba(107, 83, 68, 0.1);
       display: flex;
       align-items: center;
       font-weight: 400;
-      font-size: 16px;
+      font-size: 15px;
+      color: rgb(93, 74, 64);
     }
-    .service-list li:last-child { border-bottom: none; }
+
+    .service-list li:last-child {
+      border-bottom: none;
+    }
+
     .service-list li:before {
       content: "✓";
       display: inline-flex;
@@ -234,7 +298,7 @@
       }
 
       .service-list li {
-        font-size: 15px;
+        font-size: 14px;
       }
     }
   </style>
@@ -344,7 +408,6 @@
         </div>
 
         <!-- SERVICES SKILLS (16) -->
-        <!-- Social Media Design -->
         <div class="skill-pill px-8 py-4 rounded-full" data-category="services" style="background: rgb(252, 232, 224); display: none;">
           <p style="color: rgb(107, 83, 68); font-weight: 500; font-size: 18px;">Instagram Posts & Stories</p>
         </div>
@@ -355,7 +418,6 @@
           <p style="color: rgb(107, 83, 68); font-weight: 500; font-size: 18px;">Social Media Content Creation</p>
         </div>
         
-        <!-- Graphic Design -->
         <div class="skill-pill px-8 py-4 rounded-full" data-category="services" style="background: rgb(253, 233, 228); display: none;">
           <p style="color: rgb(107, 83, 68); font-weight: 500; font-size: 18px;">Flyer Design</p>
         </div>
@@ -372,7 +434,6 @@
           <p style="color: rgb(107, 83, 68); font-weight: 500; font-size: 18px;">Business Cards</p>
         </div>
         
-        <!-- Product Marketing -->
         <div class="skill-pill px-8 py-4 rounded-full" data-category="services" style="background: rgb(252, 232, 224); display: none;">
           <p style="color: rgb(107, 83, 68); font-weight: 500; font-size: 18px;">Product Mockups</p>
         </div>
@@ -383,7 +444,6 @@
           <p style="color: rgb(107, 83, 68); font-weight: 500; font-size: 18px;">Beauty & Skincare Creatives</p>
         </div>
         
-        <!-- Website Design -->
         <div class="skill-pill px-8 py-4 rounded-full" data-category="services" style="background: rgb(253, 233, 228); display: none;">
           <p style="color: rgb(107, 83, 68); font-weight: 500; font-size: 18px;">Landing Pages</p>
         </div>
@@ -391,7 +451,6 @@
           <p style="color: rgb(107, 83, 68); font-weight: 500; font-size: 18px;">Portfolio Websites</p>
         </div>
         
-        <!-- Branding & Marketing -->
         <div class="skill-pill px-8 py-4 rounded-full" data-category="services" style="background: rgb(232, 229, 245); display: none;">
           <p style="color: rgb(107, 83, 68); font-weight: 500; font-size: 18px;">Brand Style Guides</p>
         </div>
@@ -606,182 +665,232 @@
     </div>
   </section>
 
-  <!-- Services -->
+  <!-- Services with Dropdown -->
   <section id="services" class="py-24 px-6 relative" style="background: rgb(253, 243, 240);">
-    <div class="max-w-7xl mx-auto">
+    <div class="max-w-4xl mx-auto">
       <h2 class="text-center mb-4 reveal" style="color: rgb(107, 83, 68); font-weight: 700; font-size: 27px;">My Services</h2>
-      <p class="text-center mb-16 reveal" style="color: rgb(93, 74, 64); font-weight: 400; font-size: 18px; max-width: 2xl;">Comprehensive design solutions for creative design & digital marketing</p>
+      <p class="text-center mb-16 reveal" style="color: rgb(93, 74, 64); font-weight: 400; font-size: 18px;">Comprehensive design solutions for creative design & digital marketing</p>
       
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="space-y-4 reveal">
         
         <!-- Service 1: Graphic Design & Branding -->
-        <div class="service-category p-6 rounded-3xl shadow-lg reveal" style="background: linear-gradient(135deg, rgb(252, 232, 224), rgb(253, 233, 228));">
-          <div class="flex items-center gap-3 mb-5">
-            <span class="text-3xl">🎨</span>
-            <h3 style="color: rgb(107, 83, 68); font-weight: 700; font-size: 20px; margin: 0;">Graphic Design & Branding</h3>
+        <div class="border-2 border-transparent rounded-2xl" style="background: white; box-shadow: 0 4px 15px rgba(107, 83, 68, 0.08);">
+          <button class="service-dropdown-btn" onclick="toggleService(this)">
+            <div class="flex items-center">
+              <span class="icon">🎨</span>
+              <span>Graphic Design & Branding</span>
+            </div>
+            <span class="chevron">▼</span>
+          </button>
+          <div class="service-content">
+            <ul class="service-list" style="color: rgb(93, 74, 64);">
+              <li>Logo Design</li>
+              <li>Brand Identity Design</li>
+              <li>Brand Style Guides</li>
+              <li>Rebranding Projects</li>
+              <li>Business Cards & Stationery</li>
+              <li>Packaging & Label Design</li>
+              <li>Marketing Materials</li>
+              <li>Corporate Branding Assets</li>
+            </ul>
           </div>
-          <ul class="service-list" style="color: rgb(93, 74, 64);">
-            <li>Logo Design</li>
-            <li>Brand Identity Design</li>
-            <li>Brand Style Guides</li>
-            <li>Rebranding Projects</li>
-            <li>Business Cards & Stationery</li>
-            <li>Packaging & Label Design</li>
-            <li>Marketing Materials</li>
-            <li>Corporate Branding Assets</li>
-          </ul>
         </div>
 
         <!-- Service 2: Social Media & Content Design -->
-        <div class="service-category p-6 rounded-3xl shadow-lg reveal" style="background: linear-gradient(135deg, rgb(232, 229, 245), rgb(243, 217, 232));">
-          <div class="flex items-center gap-3 mb-5">
-            <span class="text-3xl">📱</span>
-            <h3 style="color: rgb(107, 83, 68); font-weight: 700; font-size: 20px; margin: 0;">Social Media & Content</h3>
+        <div class="border-2 border-transparent rounded-2xl" style="background: white; box-shadow: 0 4px 15px rgba(107, 83, 68, 0.08);">
+          <button class="service-dropdown-btn" onclick="toggleService(this)">
+            <div class="flex items-center">
+              <span class="icon">📱</span>
+              <span>Social Media & Content</span>
+            </div>
+            <span class="chevron">▼</span>
+          </button>
+          <div class="service-content">
+            <ul class="service-list" style="color: rgb(93, 74, 64);">
+              <li>Social Media Posts & Stories</li>
+              <li>Carousel Posts</li>
+              <li>Social Media Campaigns</li>
+              <li>Content Creation & Planning</li>
+              <li>Instagram Highlight Covers</li>
+              <li>YouTube Thumbnails</li>
+              <li>Social Media Templates</li>
+              <li>Digital Content Graphics</li>
+            </ul>
           </div>
-          <ul class="service-list" style="color: rgb(93, 74, 64);">
-            <li>Social Media Posts & Stories</li>
-            <li>Carousel Posts</li>
-            <li>Social Media Campaigns</li>
-            <li>Content Creation & Planning</li>
-            <li>Instagram Highlight Covers</li>
-            <li>YouTube Thumbnails</li>
-            <li>Social Media Templates</li>
-            <li>Digital Content Graphics</li>
-          </ul>
         </div>
 
         <!-- Service 3: Advertising & Marketing Design -->
-        <div class="service-category p-6 rounded-3xl shadow-lg reveal" style="background: linear-gradient(135deg, rgb(253, 233, 228), rgb(252, 232, 224));">
-          <div class="flex items-center gap-3 mb-5">
-            <span class="text-3xl">📢</span>
-            <h3 style="color: rgb(107, 83, 68); font-weight: 700; font-size: 20px; margin: 0;">Advertising & Marketing</h3>
+        <div class="border-2 border-transparent rounded-2xl" style="background: white; box-shadow: 0 4px 15px rgba(107, 83, 68, 0.08);">
+          <button class="service-dropdown-btn" onclick="toggleService(this)">
+            <div class="flex items-center">
+              <span class="icon">📢</span>
+              <span>Advertising & Marketing</span>
+            </div>
+            <span class="chevron">▼</span>
+          </button>
+          <div class="service-content">
+            <ul class="service-list" style="color: rgb(93, 74, 64);">
+              <li>Product Advertisements</li>
+              <li>Promotional Campaign Graphics</li>
+              <li>Event Marketing Materials</li>
+              <li>Email Marketing Designs</li>
+              <li>Digital Ads & Banners</li>
+              <li>Sales & Launch Campaign Creatives</li>
+              <li>E-commerce Marketing Assets</li>
+            </ul>
           </div>
-          <ul class="service-list" style="color: rgb(93, 74, 64);">
-            <li>Product Advertisements</li>
-            <li>Promotional Campaign Graphics</li>
-            <li>Event Marketing Materials</li>
-            <li>Email Marketing Designs</li>
-            <li>Digital Ads & Banners</li>
-            <li>Sales & Launch Campaign Creatives</li>
-            <li>E-commerce Marketing Assets</li>
-          </ul>
         </div>
 
         <!-- Service 4: Product & E-commerce Design -->
-        <div class="service-category p-6 rounded-3xl shadow-lg reveal" style="background: linear-gradient(135deg, rgb(232, 229, 245), rgb(253, 233, 228));">
-          <div class="flex items-center gap-3 mb-5">
-            <span class="text-3xl">🛍️</span>
-            <h3 style="color: rgb(107, 83, 68); font-weight: 700; font-size: 20px; margin: 0;">Product & E-commerce</h3>
+        <div class="border-2 border-transparent rounded-2xl" style="background: white; box-shadow: 0 4px 15px rgba(107, 83, 68, 0.08);">
+          <button class="service-dropdown-btn" onclick="toggleService(this)">
+            <div class="flex items-center">
+              <span class="icon">🛍️</span>
+              <span>Product & E-commerce</span>
+            </div>
+            <span class="chevron">▼</span>
+          </button>
+          <div class="service-content">
+            <ul class="service-list" style="color: rgb(93, 74, 64);">
+              <li>Product Mockups</li>
+              <li>Product Listing Images</li>
+              <li>Beauty & Skincare Creatives</li>
+              <li>Amazon & Online Store Graphics</li>
+              <li>Product Launch Visuals</li>
+              <li>Before & After Graphics</li>
+              <li>Product Catalog Design</li>
+            </ul>
           </div>
-          <ul class="service-list" style="color: rgb(93, 74, 64);">
-            <li>Product Mockups</li>
-            <li>Product Listing Images</li>
-            <li>Beauty & Skincare Creatives</li>
-            <li>Amazon & Online Store Graphics</li>
-            <li>Product Launch Visuals</li>
-            <li>Before & After Graphics</li>
-            <li>Product Catalog Design</li>
-          </ul>
         </div>
 
         <!-- Service 5: Web & Digital Design -->
-        <div class="service-category p-6 rounded-3xl shadow-lg reveal" style="background: linear-gradient(135deg, rgb(243, 217, 232), rgb(252, 232, 224));">
-          <div class="flex items-center gap-3 mb-5">
-            <span class="text-3xl">💻</span>
-            <h3 style="color: rgb(107, 83, 68); font-weight: 700; font-size: 20px; margin: 0;">Web & Digital Design</h3>
+        <div class="border-2 border-transparent rounded-2xl" style="background: white; box-shadow: 0 4px 15px rgba(107, 83, 68, 0.08);">
+          <button class="service-dropdown-btn" onclick="toggleService(this)">
+            <div class="flex items-center">
+              <span class="icon">💻</span>
+              <span>Web & Digital Design</span>
+            </div>
+            <span class="chevron">▼</span>
+          </button>
+          <div class="service-content">
+            <ul class="service-list" style="color: rgb(93, 74, 64);">
+              <li>Landing Page Design</li>
+              <li>Portfolio Websites</li>
+              <li>Canva Website Design</li>
+              <li>Website Graphics & Banners</li>
+              <li>UI Mockups</li>
+              <li>Digital Asset Design</li>
+              <li>Website Content Visuals</li>
+            </ul>
           </div>
-          <ul class="service-list" style="color: rgb(93, 74, 64);">
-            <li>Landing Page Design</li>
-            <li>Portfolio Websites</li>
-            <li>Canva Website Design</li>
-            <li>Website Graphics & Banners</li>
-            <li>UI Mockups</li>
-            <li>Digital Asset Design</li>
-            <li>Website Content Visuals</li>
-          </ul>
         </div>
 
         <!-- Service 6: Interactive & Educational Design -->
-        <div class="service-category p-6 rounded-3xl shadow-lg reveal" style="background: linear-gradient(135deg, rgb(253, 233, 228), rgb(232, 229, 245));">
-          <div class="flex items-center gap-3 mb-5">
-            <span class="text-3xl">🎮</span>
-            <h3 style="color: rgb(107, 83, 68); font-weight: 700; font-size: 20px; margin: 0;">Interactive & Educational</h3>
+        <div class="border-2 border-transparent rounded-2xl" style="background: white; box-shadow: 0 4px 15px rgba(107, 83, 68, 0.08);">
+          <button class="service-dropdown-btn" onclick="toggleService(this)">
+            <div class="flex items-center">
+              <span class="icon">🎮</span>
+              <span>Interactive & Educational</span>
+            </div>
+            <span class="chevron">▼</span>
+          </button>
+          <div class="service-content">
+            <ul class="service-list" style="color: rgb(93, 74, 64);">
+              <li>Interactive Games (Genially)</li>
+              <li>Educational Learning Games</li>
+              <li>Baby Shower & Party Games</li>
+              <li>Bridal Shower Games</li>
+              <li>Interactive Presentations</li>
+              <li>Quizzes & Assessments</li>
+              <li>Learning Activities & Worksheets</li>
+            </ul>
           </div>
-          <ul class="service-list" style="color: rgb(93, 74, 64);">
-            <li>Interactive Games (Genially)</li>
-            <li>Educational Learning Games</li>
-            <li>Baby Shower & Party Games</li>
-            <li>Bridal Shower Games</li>
-            <li>Interactive Presentations</li>
-            <li>Quizzes & Assessments</li>
-            <li>Learning Activities & Worksheets</li>
-          </ul>
         </div>
 
         <!-- Service 7: Print & Publication Design -->
-        <div class="service-category p-6 rounded-3xl shadow-lg reveal" style="background: linear-gradient(135deg, rgb(252, 232, 224), rgb(243, 217, 232));">
-          <div class="flex items-center gap-3 mb-5">
-            <span class="text-3xl">📄</span>
-            <h3 style="color: rgb(107, 83, 68); font-weight: 700; font-size: 20px; margin: 0;">Print & Publication</h3>
+        <div class="border-2 border-transparent rounded-2xl" style="background: white; box-shadow: 0 4px 15px rgba(107, 83, 68, 0.08);">
+          <button class="service-dropdown-btn" onclick="toggleService(this)">
+            <div class="flex items-center">
+              <span class="icon">📄</span>
+              <span>Print & Publication</span>
+            </div>
+            <span class="chevron">▼</span>
+          </button>
+          <div class="service-content">
+            <ul class="service-list" style="color: rgb(93, 74, 64);">
+              <li>Flyers & Posters</li>
+              <li>Brochures & Booklets</li>
+              <li>Menus</li>
+              <li>Invitations</li>
+              <li>Certificates</li>
+              <li>Workbooks & Planners</li>
+              <li>Magazines & Catalogs</li>
+            </ul>
           </div>
-          <ul class="service-list" style="color: rgb(93, 74, 64);">
-            <li>Flyers & Posters</li>
-            <li>Brochures & Booklets</li>
-            <li>Menus</li>
-            <li>Invitations</li>
-            <li>Certificates</li>
-            <li>Workbooks & Planners</li>
-            <li>Magazines & Catalogs</li>
-          </ul>
         </div>
 
         <!-- Service 8: Content & Media Design -->
-        <div class="service-category p-6 rounded-3xl shadow-lg reveal" style="background: linear-gradient(135deg, rgb(232, 229, 245), rgb(252, 232, 224));">
-          <div class="flex items-center gap-3 mb-5">
-            <span class="text-3xl">🎥</span>
-            <h3 style="color: rgb(107, 83, 68); font-weight: 700; font-size: 20px; margin: 0;">Content & Media Design</h3>
+        <div class="border-2 border-transparent rounded-2xl" style="background: white; box-shadow: 0 4px 15px rgba(107, 83, 68, 0.08);">
+          <button class="service-dropdown-btn" onclick="toggleService(this)">
+            <div class="flex items-center">
+              <span class="icon">🎥</span>
+              <span>Content & Media Design</span>
+            </div>
+            <span class="chevron">▼</span>
+          </button>
+          <div class="service-content">
+            <ul class="service-list" style="color: rgb(93, 74, 64);">
+              <li>Short Video Editing</li>
+              <li>Reels & TikTok Content</li>
+              <li>Promotional Videos</li>
+              <li>Motion Graphics (Basic)</li>
+              <li>Presentation Videos</li>
+              <li>Visual Storytelling Content</li>
+            </ul>
           </div>
-          <ul class="service-list" style="color: rgb(93, 74, 64);">
-            <li>Short Video Editing</li>
-            <li>Reels & TikTok Content</li>
-            <li>Promotional Videos</li>
-            <li>Motion Graphics (Basic)</li>
-            <li>Presentation Videos</li>
-            <li>Visual Storytelling Content</li>
-          </ul>
         </div>
 
         <!-- Service 9: Business & Professional Design -->
-        <div class="service-category p-6 rounded-3xl shadow-lg reveal" style="background: linear-gradient(135deg, rgb(243, 217, 232), rgb(253, 233, 228));">
-          <div class="flex items-center gap-3 mb-5">
-            <span class="text-3xl">📊</span>
-            <h3 style="color: rgb(107, 83, 68); font-weight: 700; font-size: 20px; margin: 0;">Business & Professional</h3>
+        <div class="border-2 border-transparent rounded-2xl" style="background: white; box-shadow: 0 4px 15px rgba(107, 83, 68, 0.08);">
+          <button class="service-dropdown-btn" onclick="toggleService(this)">
+            <div class="flex items-center">
+              <span class="icon">📊</span>
+              <span>Business & Professional</span>
+            </div>
+            <span class="chevron">▼</span>
+          </button>
+          <div class="service-content">
+            <ul class="service-list" style="color: rgb(93, 74, 64);">
+              <li>Presentation Design</li>
+              <li>Pitch Decks</li>
+              <li>Company Profiles</li>
+              <li>Resume/CV Design</li>
+              <li>Portfolio Design</li>
+              <li>Proposal Design</li>
+              <li>Reports & Business Documents</li>
+            </ul>
           </div>
-          <ul class="service-list" style="color: rgb(93, 74, 64);">
-            <li>Presentation Design</li>
-            <li>Pitch Decks</li>
-            <li>Company Profiles</li>
-            <li>Resume/CV Design</li>
-            <li>Portfolio Design</li>
-            <li>Proposal Design</li>
-            <li>Reports & Business Documents</li>
-          </ul>
         </div>
 
-        <!-- Service 10: Custom Creative Solutions (Full Width) -->
-        <div class="service-category p-6 rounded-3xl shadow-lg reveal lg:col-span-3" style="background: linear-gradient(135deg, rgb(212, 138, 154) 0%, rgb(208, 138, 154) 100%); color: white;">
-          <div class="flex items-center gap-3 mb-5">
-            <span class="text-3xl">✨</span>
-            <h3 style="color: white; font-weight: 700; font-size: 20px; margin: 0;">Custom Creative Solutions</h3>
+        <!-- Service 10: Custom Creative Solutions -->
+        <div class="border-2 border-transparent rounded-2xl" style="background: linear-gradient(135deg, rgb(212, 138, 154) 0%, rgb(208, 138, 154) 100%); box-shadow: 0 4px 15px rgba(212, 138, 154, 0.25);">
+          <button class="service-dropdown-btn" style="color: white; background: transparent;" onclick="toggleService(this)">
+            <div class="flex items-center">
+              <span class="icon">✨</span>
+              <span>Custom Creative Solutions</span>
+            </div>
+            <span class="chevron">▼</span>
+          </button>
+          <div class="service-content">
+            <ul class="service-list" style="color: rgba(255, 255, 255, 0.95);">
+              <li style="border-bottom-color: rgba(255, 255, 255, 0.2);">Canva Templates</li>
+              <li style="border-bottom-color: rgba(255, 255, 255, 0.2);">Digital Products</li>
+              <li style="border-bottom-color: rgba(255, 255, 255, 0.2);">Printable Designs</li>
+              <li style="border-bottom-color: rgba(255, 255, 255, 0.2);">Custom Client Requests</li>
+              <li style="border-bottom-color: rgba(255, 255, 255, 0.2);">Creative Consultation</li>
+              <li>Design Support for Small Businesses & Startups</li>
+            </ul>
           </div>
-          <ul class="service-list" style="color: rgba(255, 255, 255, 0.95);">
-            <li style="border-bottom-color: rgba(255, 255, 255, 0.2);">Canva Templates</li>
-            <li style="border-bottom-color: rgba(255, 255, 255, 0.2);">Digital Products</li>
-            <li style="border-bottom-color: rgba(255, 255, 255, 0.2);">Printable Designs</li>
-            <li style="border-bottom-color: rgba(255, 255, 255, 0.2);">Custom Client Requests</li>
-            <li style="border-bottom-color: rgba(255, 255, 255, 0.2);">Creative Consultation</li>
-            <li>Design Support for Small Businesses & Startups</li>
-          </ul>
         </div>
 
       </div>
@@ -862,13 +971,11 @@
     document.getElementById("modalTitle").innerText = el.dataset.title;
     document.getElementById("modalImg").src = el.dataset.img;
     document.getElementById("modalDesc").innerText = el.dataset.desc;
-    // Prevent body scrolling when modal is open
     document.body.style.overflow = "hidden";
   }
 
   function closeModal() {
     document.getElementById("modal").style.display = "none";
-    // Re-enable body scrolling
     document.body.style.overflow = "auto";
   }
 
@@ -876,10 +983,29 @@
     if (e.target.id === "modal") closeModal();
   }
 
-  // Close modal on Escape key
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeModal();
   });
+
+  // Service Dropdown Toggle
+  function toggleService(btn) {
+    const content = btn.nextElementSibling;
+    const isActive = content.classList.contains('active');
+    
+    // Close all other services
+    document.querySelectorAll('.service-content').forEach(c => {
+      c.classList.remove('active');
+    });
+    document.querySelectorAll('.service-dropdown-btn').forEach(b => {
+      b.classList.remove('active');
+    });
+    
+    // Toggle current service
+    if (!isActive) {
+      content.classList.add('active');
+      btn.classList.add('active');
+    }
+  }
 
   // Filter Skills Functionality
   const filterButtons = document.querySelectorAll(".filter-btn");
@@ -887,16 +1013,11 @@
 
   filterButtons.forEach(btn => {
     btn.addEventListener("click", () => {
-      // Remove active class from all buttons
       filterButtons.forEach(b => b.classList.remove("active"));
-      
-      // Add active class to clicked button
       btn.classList.add("active");
       
-      // Get the filter value
       const filter = btn.dataset.filter;
       
-      // Show/hide skills based on category
       skillPills.forEach(skill => {
         if (skill.dataset.category === filter) {
           skill.style.display = "inline-block";
