@@ -43,6 +43,9 @@
     .project-card:nth-child(odd) { transform: rotate(-1deg); }
     .project-card:nth-child(even) { transform: rotate(1deg); }
 
+    .service-card { transition: transform 0.4s ease, box-shadow 0.4s ease; cursor: pointer; }
+    .service-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(107,83,68,0.15); }
+
     .hero-text { animation: slideUp 1s ease forwards; opacity: 0; }
     .hero-text-d1 { animation-delay: 0.2s; }
     .hero-text-d2 { animation-delay: 0.4s; }
@@ -223,6 +226,7 @@
       <a href="#about" class="text-gray-600 hover:text-gray-900 transition" onclick="smoothScroll(event)">About</a>
       <a href="#skills" class="text-gray-600 hover:text-gray-900 transition" onclick="smoothScroll(event)">Skills</a>
       <a href="#projects" class="text-gray-600 hover:text-gray-900 transition" onclick="smoothScroll(event)">Projects</a>
+      <a href="#services" class="text-gray-600 hover:text-gray-900 transition" onclick="smoothScroll(event)">Services</a>
       <a href="#contact" class="text-gray-600 hover:text-gray-900 transition" onclick="smoothScroll(event)">Contact</a>
     </div>
   </nav>
@@ -233,15 +237,15 @@
   <!-- Hero Landing -->
   <section class="w-full pt-32 pb-20 px-6 relative overflow-hidden" style="min-height: 100vh; background: rgba(255, 255, 255, 0);">
     <div class="absolute inset-0 z-0">
-      <img class="w-full h-full object-cover" loading="lazy" src="https://images.pexels.com/photos/29765807/pexels-photo-29765807.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Minimalist pink desk flat lay featuring stationery, keyboard, and coffee for a creative workspace vibe.">
+      <img class="w-full h-full object-cover" loading="lazy" src="https://images.pexels.com/photos/29765807/pexels-photo-29765807.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Minimalist pink desk setup">
       <div class="absolute inset-0 bg-gradient-to-r from-white/85 via-white/70 to-white/40"></div>
     </div>
     <div class="max-w-7xl mx-auto relative z-10 h-full flex items-center justify-center">
       <div class="flex flex-col justify-center items-center text-center">
         <p class="uppercase tracking-[0.3em] mb-4 hero-text" style="color: rgb(208, 138, 154); font-weight: 500; font-size: 13px;">Digital Designer & Creative Strategist</p>
         <h1 class="mb-6 hero-text hero-text-d1 leading-tight" style="color: rgb(61, 43, 34); font-weight: 900; font-size: 64px;">Digital Designer</h1>
-        <p class="mb-8 hero-text hero-text-d2 max-w-2xl" style="color: rgb(93, 74, 64); font-weight: 400; font-size: 18px;">Crafting beautiful, strategic designs that help brands connect, communicate, and convert. From social media graphics to branding and advertising creatives.</p>
-        <a href="#projects" class="inline-flex items-center gap-2 px-8 py-4 rounded-full font-medium transition hover:scale-105 hover:shadow-lg w-fit hero-text hero-text-d3 cursor-pointer" onclick="smoothScroll(event)" style="background: rgb(212, 138, 154); color: rgb(255, 255, 255); font-weight: 600; font-size: 16px;">View Portfolio →</a>
+        <p class="mb-8 hero-text hero-text-d2 max-w-2xl" style="color: rgb(93, 74, 64); font-weight: 400; font-size: 18px;">Crafting beautiful, strategic designs that help brands connect, communicate, and stand out in a crowded marketplace.</p>
+        <a href="#projects" class="inline-flex items-center gap-2 px-8 py-4 rounded-full font-medium transition hover:scale-105 hover:shadow-lg w-fit hero-text hero-text-d3 cursor-pointer" onclick="smoothScroll(event)" style="background: rgb(212, 138, 154); color: white;">View My Work →</a>
       </div>
     </div>
   </section>
@@ -260,7 +264,7 @@
         </div>
         <div class="flex flex-col justify-center lg:order-2">
           <h2 class="mb-6" style="color: rgb(107, 83, 68); font-weight: 700; font-size: 27px;">About Me</h2>
-          <p class="leading-relaxed" style="color: rgb(93, 74, 64); font-weight: 400; font-size: 20px;">I'm a digital designer who brings brands to life through compelling visual design. From social media graphics and motion animations to complete brand identities, I craft work that connects, inspires, and drives real results across every platform.</p>
+          <p class="leading-relaxed" style="color: rgb(93, 74, 64); font-weight: 400; font-size: 20px;">I'm a digital designer who brings brands to life through compelling visual design. From social media graphics to complete branding solutions, I create designs that don't just look good—they deliver results. With expertise in design trends, color psychology, and user engagement, I help brands build meaningful connections with their audience.</p>
         </div>
       </div>
     </div>
@@ -450,7 +454,7 @@
     </div>
   </section>
 
-  <!-- Projects -->
+  <!-- Featured Projects -->
   <section id="projects" class="py-24 px-6" style="background: rgb(255, 252, 250);">
     <div class="max-w-6xl mx-auto">
       <h2 class="text-center mb-16 reveal" style="color: rgb(107, 83, 68); font-weight: 700; font-size: 27px;">Featured Projects</h2>
@@ -459,12 +463,12 @@
         <div class="project-card rounded-3xl overflow-hidden shadow-xl reveal" onclick="openModal(this)"
              data-title="Skin1004 Madagascar Centella"
              data-img="images/skin1004.png"
-             data-desc="Skin1004 Madagascar Centella poster featuring award-winning sun serum with Hyalu-Cica Water-Fit technology and zero white cast, delivering lightweight hydration and daily UV protection.">
+             data-desc="Skin1004 Madagascar Centella poster featuring award-winning sun serum with Hyalu-Cica Water-Fit technology and zero white cast, delivering lightweight hydration and daily sun protection.">
           <div class="overflow-hidden" style="aspect-ratio:1/1;">
             <img class="w-full h-full object-cover" loading="lazy" src="images/skin1004.png" alt="SKIN1004 Madagascar Centella skincare product with water splash and floral styling">
           </div>
           <div class="p-6" style="background: rgb(253, 243, 240);">
-            <p class="text-sm" style="color: rgb(93, 74, 64); font-weight: 400; font-size: 18px;">Skin1004 Madagascar Centella poster featuring award-winning sun serum with Hyalu-Cica Water-Fit technology.</p>
+            <p class="text-sm" style="color: rgb(93, 74, 64); font-weight: 400; font-size: 18px;">Skin1004 Madagascar Centella poster featuring award-winning sun serum with Hyalu-Cica Water-Fit technology...</p>
           </div>
         </div>
 
@@ -474,10 +478,10 @@
              data-img="images/celimax.png"
              data-desc="Celimax Retinal Shot skincare featuring 0.1% retinol and peptides tightening booster with proven anti-aging benefits and fan-favorite status for smoother, revitalized complexion.">
           <div class="overflow-hidden" style="aspect-ratio:1/1;">
-            <img class="w-full h-full object-cover" loading="lazy" src="images/celimax.png" alt="Celimax Retinal Shot skincare product with retinol and peptides, featuring close-up application and floral styling">
+            <img class="w-full h-full object-cover" loading="lazy" src="images/celimax.png" alt="Celimax Retinal Shot skincare product with retinol and peptides, featuring close-up application and botanical styling">
           </div>
           <div class="p-6" style="background: rgb(253, 243, 240);">
-            <p class="text-sm" style="color: rgb(93, 74, 64); font-weight: 400; font-size: 18px;">Celimax Retinal Shot skincare featuring 0.1% retinol and peptides tightening booster with proven anti-aging benefits.</p>
+            <p class="text-sm" style="color: rgb(93, 74, 64); font-weight: 400; font-size: 18px;">Celimax Retinal Shot skincare featuring 0.1% retinol and peptides tightening booster with proven anti-aging benefits...</p>
           </div>
         </div>
 
@@ -487,10 +491,10 @@
              data-img="images/mixsoon.png"
              data-desc="Meet your shortcut to smooth, hydrated, glass skin. This Essence nourishes, gently exfoliates, and boosts your skin's natural radiance.">
           <div class="overflow-hidden" style="aspect-ratio:1/1;">
-            <img class="w-full h-full object-cover" loading="lazy" src="images/mixsoon.png" alt="Mixsoon Bean Essence hydrating skincare with fermented soybean, barley, pomegranate and Korean pear, styled with flowers and botanical elements">
+            <img class="w-full h-full object-cover" loading="lazy" src="images/mixsoon.png" alt="Mixsoon Bean Essence hydrating skincare with fermented soybean, barley, pomegranate and Korean pear extract">
           </div>
           <div class="p-6" style="background: rgb(253, 243, 240);">
-            <p class="text-sm" style="color: rgb(93, 74, 64); font-weight: 400; font-size: 18px;">Meet your shortcut to smooth, hydrated, glass skin. This Essence nourishes, gently exfoliates, and boosts your skin's natural radiance.</p>
+            <p class="text-sm" style="color: rgb(93, 74, 64); font-weight: 400; font-size: 18px;">Meet your shortcut to smooth, hydrated, glass skin. This Essence nourishes, gently exfoliates, and boosts your skin's natural radiance...</p>
           </div>
         </div>
 
@@ -500,10 +504,10 @@
              data-img="images/anua.png"
              data-desc="Anua Azelaic Acid 10 Hyaluron Redness Relief Serum campaign featuring 10% azelaic acid with hyaluronic acid, niacinamide, and centella asiatica for calming sensitive skin.">
           <div class="overflow-hidden" style="aspect-ratio:1/1;">
-            <img class="w-full h-full object-cover" loading="lazy" src="images/anua.png" alt="Anua Azelaic Acid 10 Hyaluron Redness Relief Serum product campaign with botanical elements and green aesthetic">
+            <img class="w-full h-full object-cover" loading="lazy" src="images/anua.png" alt="Anua Azelaic Acid 10 Hyaluron Redness Relief Serum product campaign with botanical elements and green styling">
           </div>
           <div class="p-6" style="background: rgb(253, 243, 240);">
-            <p class="text-sm" style="color: rgb(93, 74, 64); font-weight: 400; font-size: 18px;">Anua Azelaic Acid 10 Hyaluron Redness Relief Serum campaign featuring 10% azelaic acid with soothing ingredients.</p>
+            <p class="text-sm" style="color: rgb(93, 74, 64); font-weight: 400; font-size: 18px;">Anua Azelaic Acid 10 Hyaluron Redness Relief Serum campaign featuring 10% azelaic acid with soothing botanicals...</p>
           </div>
         </div>
 
@@ -516,7 +520,7 @@
             <img class="w-full h-full object-cover" loading="lazy" src="images/joseon.png" alt="Beauty of Joseon Relief Sun Rice + Probiotics SPF 50+ PA++++ sunscreen product with botanical and floral styling">
           </div>
           <div class="p-6" style="background: rgb(253, 243, 240);">
-            <p class="text-sm" style="color: rgb(93, 74, 64); font-weight: 400; font-size: 18px;">Beauty of Joseon Relief Sun Rice + Probiotics SPF 50+ campaign featuring lightweight sunscreen with rice and probiotics.</p>
+            <p class="text-sm" style="color: rgb(93, 74, 64); font-weight: 400; font-size: 18px;">Beauty of Joseon Relief Sun Rice + Probiotics SPF 50+ campaign featuring lightweight sunscreen with rice and probiotics...</p>
           </div>
         </div>
 
@@ -524,12 +528,12 @@
         <div class="project-card rounded-3xl overflow-hidden shadow-xl reveal" onclick="openModal(this)"
              data-title="COSRX Advanced Snail 96"
              data-img="images/cosrx.png"
-             data-desc="COSRX Advanced Snail 96 Mucin Essence anti-aging power essence with 96% snail mucin, sodium hyaluronate, panthenol, and allantoin for hydration and glow repair for smooth radiant skin.">
+             data-desc="COSRX Advanced Snail 96 Mucin Essence anti-aging power essence with 96% snail mucin, sodium hyaluronate, panthenol, and allantoin for hydration and glow repair for smooth complexion.">
           <div class="overflow-hidden" style="aspect-ratio:1/1;">
             <img class="w-full h-full object-cover" loading="lazy" src="images/cosrx.png" alt="COSRX Advanced Snail 96 Mucin Essence anti-aging power essence product campaign with snail serum and botanical elements">
           </div>
           <div class="p-6" style="background: rgb(253, 243, 240);">
-            <p class="text-sm" style="color: rgb(93, 74, 64); font-weight: 400; font-size: 18px;">COSRX Advanced Snail 96 Mucin Essence anti-aging power essence with 96% snail mucin for hydration and repair.</p>
+            <p class="text-sm" style="color: rgb(93, 74, 64); font-weight: 400; font-size: 18px;">COSRX Advanced Snail 96 Mucin Essence anti-aging power essence with 96% snail mucin for hydration and glow...</p>
           </div>
         </div>
         <!-- Project 7 -->
@@ -541,7 +545,7 @@
             <img class="w-full h-full object-cover" loading="lazy" src="images/poremizing.png" alt="SKIN1004 Centella Poremizing Clear Up Gel Cream">
           </div>
           <div class="p-7" style="background: rgb(253, 243, 240);">
-            <p class="text-sm" style="color: rgb(93, 74, 64); font-weight: 400; font-size: 18px;">Infused with Himalayan Salt and Centella Asiatica Extract, this cream tightens, refines, and smooths your skin texture, without stripping moisture.</p>
+            <p class="text-sm" style="color: rgb(93, 74, 64); font-weight: 400; font-size: 18px;">Infused with Himalayan Salt and Centella Asiatica Extract, this cream tightens, refines, and smooths skin texture...</p>
           </div>
         </div>
         <!-- Project 8 -->
@@ -553,7 +557,7 @@
             <img class="w-full h-full object-cover" loading="lazy" src="images/cosrx retinol.png" alt="COSRX The Retinol 0.5 Oil">
           </div>
           <div class="p-8" style="background: rgb(253, 243, 240);">
-            <p class="text-sm" style="color: rgb(93, 74, 64); font-weight: 400; font-size: 18px;">This nighttime lightweight facial oil works while you dream: 0.5% pure retinol smooths fine lines, fades breakouts, and firms skin.</p>
+            <p class="text-sm" style="color: rgb(93, 74, 64); font-weight: 400; font-size: 18px;">This nighttime lightweight facial oil works while you dream: 0.5% pure retinol smooths fine lines and firms skin...</p>
           </div>
         </div>
         <!-- Project 9 -->
@@ -565,9 +569,61 @@
             <img class="w-full h-full object-cover" loading="lazy" src="images/anua cleanser.png" alt="Anua - 8 Hyaluronic Acid Moisturizing Gentle Gel Cleanser">
           </div>
           <div class="p-9" style="background: rgb(253, 243, 240);">
-            <p class="text-sm" style="color: rgb(93, 74, 64); font-weight: 400; font-size: 18px;">Formulated with 8 types of Hyaluronic Acid, Squalane, and Glycerin to lock in hydration while deeply cleansing pores.</p>
+            <p class="text-sm" style="color: rgb(93, 74, 64); font-weight: 400; font-size: 18px;">Formulated with 8 types of Hyaluronic Acid, Squalane, and Glycerin to lock in hydration while deeply cleansing...</p>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="py-24 px-6 relative" style="background: rgb(253, 243, 240);">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-center mb-16 reveal" style="color: rgb(107, 83, 68); font-weight: 700; font-size: 27px;">My Services</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Service 1: Social Media Design -->
+        <div class="service-card p-8 rounded-3xl shadow-lg reveal" style="background: linear-gradient(135deg, rgb(252, 232, 224), rgb(253, 233, 228));">
+          <div class="mb-4 text-4xl">📱</div>
+          <h3 class="mb-3" style="color: rgb(107, 83, 68); font-weight: 700; font-size: 22px;">Social Media Design</h3>
+          <p style="color: rgb(93, 74, 64); font-weight: 400; font-size: 16px; line-height: 1.6;">Engaging Instagram posts, Stories, Reels, TikToks, and cross-platform graphics that captivate your audience and boost engagement.</p>
+        </div>
+
+        <!-- Service 2: Branding -->
+        <div class="service-card p-8 rounded-3xl shadow-lg reveal" style="background: linear-gradient(135deg, rgb(232, 229, 245), rgb(243, 217, 232));">
+          <div class="mb-4 text-4xl">🎨</div>
+          <h3 class="mb-3" style="color: rgb(107, 83, 68); font-weight: 700; font-size: 22px;">Brand Identity</h3>
+          <p style="color: rgb(93, 74, 64); font-weight: 400; font-size: 16px; line-height: 1.6;">Logo design, brand guidelines, color palettes, and visual identity systems that define your brand's personality and values.</p>
+        </div>
+
+        <!-- Service 3: Ad Campaigns -->
+        <div class="service-card p-8 rounded-3xl shadow-lg reveal" style="background: linear-gradient(135deg, rgb(253, 233, 228), rgb(252, 232, 224));">
+          <div class="mb-4 text-4xl">🎯</div>
+          <h3 class="mb-3" style="color: rgb(107, 83, 68); font-weight: 700; font-size: 22px;">Ad Campaigns</h3>
+          <p style="color: rgb(93, 74, 64); font-weight: 400; font-size: 16px; line-height: 1.6;">Strategic ad creatives for Facebook, Instagram, Google, and LinkedIn that convert viewers into customers.</p>
+        </div>
+
+        <!-- Service 4: Product Marketing -->
+        <div class="service-card p-8 rounded-3xl shadow-lg reveal" style="background: linear-gradient(135deg, rgb(232, 229, 245), rgb(253, 233, 228));">
+          <div class="mb-4 text-4xl">📦</div>
+          <h3 class="mb-3" style="color: rgb(107, 83, 68); font-weight: 700; font-size: 22px;">Product Marketing</h3>
+          <p style="color: rgb(93, 74, 64); font-weight: 400; font-size: 16px; line-height: 1.6;">Stunning product mockups, lifestyle photography styling, and e-commerce graphics that showcase your products beautifully.</p>
+        </div>
+
+        <!-- Service 5: Print Design -->
+        <div class="service-card p-8 rounded-3xl shadow-lg reveal" style="background: linear-gradient(135deg, rgb(243, 217, 232), rgb(252, 232, 224));">
+          <div class="mb-4 text-4xl">📄</div>
+          <h3 class="mb-3" style="color: rgb(107, 83, 68); font-weight: 700; font-size: 22px;">Print Design</h3>
+          <p style="color: rgb(93, 74, 64); font-weight: 400; font-size: 16px; line-height: 1.6;">Flyers, posters, brochures, business cards, and banners designed to make an impact both digitally and in print.</p>
+        </div>
+
+        <!-- Service 6: Web Design -->
+        <div class="service-card p-8 rounded-3xl shadow-lg reveal" style="background: linear-gradient(135deg, rgb(253, 233, 228), rgb(232, 229, 245));">
+          <div class="mb-4 text-4xl">🌐</div>
+          <h3 class="mb-3" style="color: rgb(107, 83, 68); font-weight: 700; font-size: 22px;">Web & UI/UX</h3>
+          <p style="color: rgb(93, 74, 64); font-weight: 400; font-size: 16px; line-height: 1.6;">Landing pages, portfolio websites, and user interface designs that are beautiful, functional, and user-friendly.</p>
+        </div>
+
       </div>
     </div>
   </section>
@@ -579,7 +635,7 @@
     <div class="max-w-2xl mx-auto text-center relative z-10 reveal">
       <h2 class="mb-4" style="color: rgb(255, 251, 249); font-weight: 700; font-size: 27px;">Let's create something together.</h2>
       <p class="mb-8" style="color: rgb(245, 230, 224); font-weight: 400; font-size: 18px;">Open for freelance projects, collaborations, and creative partnerships.</p>
-      <a href="mailto:sakinahamid53@hotmail.com" class="inline-block px-10 py-4 rounded-full font-medium transition hover:scale-105 hover:shadow-lg" style="background: rgb(255, 251, 249); color: rgb(107, 83, 68); font-weight: 600; font-size: 18px;">Get In Touch</a>
+      <a href="mailto:sakinahamid53@hotmail.com" class="inline-block px-10 py-4 rounded-full font-medium transition hover:scale-105 hover:shadow-lg" style="background: rgb(255, 251, 249); color: rgb(212, 138, 154);">Get in Touch →</a>
     </div>
   </section>
 
@@ -608,7 +664,8 @@
    aria-label="Chat on WhatsApp">
 
   <svg class="whatsapp-icon" viewBox="0 0 32 32">
-    <path fill="white" d="M16 3C9.37 3 4 8.37 4 15c0 2.61.85 5.02 2.29 6.97L4 29l7.28-2.25C13.1 27.54 14.52 28 16 28c6.63 0 12-5.37 12-12S22.63 3 16 3zm0 22c-1.35 0-2.65-.27-3.85-.8l-.28-.12-4.32 1.33 1.41-4.21-.18-.3C7.8 19.5 7 17.31 7 15 7 9.48 11.48 5 16 5s9 4.48 9 10-4.48 10-9 10z"/>
+    <path fill="white" d="M16 3C9.37 3 4 8.37 4 15c0 2.61.85 5.02 2.29 6.97L4 29l7.28-2.25C13.1 27.54 14.52 28 16 28c6.63 0 12-5.37 12-12S22.63 3 16 3zm0 22c-1.35 0-2.65-.27-3.85-.8l-.28-.12-4.32 1.34.95-3.46-.24-.38C6.14 19.65 5.5 17.41 5.5 15c0-5.79 4.71-10.5 10.5-10.5S26.5 9.21 26.5 15 21.79 25 16 25z"/>
+    <path fill="white" d="M20.5 17.5c-.27 0-.55-.08-.82-.25-.5-.32-1.3-.7-2.7-1.5-1.4-.8-2.1-1.2-2.37-1.5-.27-.3-.27-.7 0-1.06.54-.72 1.08-1.44 1.08-1.44l.18-.27c.36-.54.18-1.08-.18-1.44-.36-.36-.9-.72-1.26-.9-.36-.18-.72-.09-1.08.09-.36.18-.72.72-.9 1.26-.18.54-.27 1.26-.09 1.98.18.72.9 1.62 1.62 2.34.72.72 1.62 1.44 2.34 1.62.72.18 1.44.09 1.98-.09.54-.18 1.08-.54 1.26-.9.18-.36.09-.72-.09-1.08-.18-.36-.54-.72-.9-.9-.27-.17-.55-.25-.82-.25z"/>
   </svg>
 
   <span class="whatsapp-text">WhatsApp Me</span>
