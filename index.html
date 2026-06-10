@@ -43,8 +43,34 @@
     .project-card:nth-child(odd) { transform: rotate(-1deg); }
     .project-card:nth-child(even) { transform: rotate(1deg); }
 
-    .service-card { transition: transform 0.4s ease, box-shadow 0.4s ease; cursor: pointer; }
-    .service-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(107,83,68,0.15); }
+    .service-category { transition: all 0.4s ease; }
+    .service-category:hover { transform: translateY(-8px); }
+
+    .service-list { list-style: none; padding: 0; margin: 0; }
+    .service-list li { 
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(107, 83, 68, 0.1);
+      display: flex;
+      align-items: center;
+      font-weight: 400;
+      font-size: 16px;
+    }
+    .service-list li:last-child { border-bottom: none; }
+    .service-list li:before {
+      content: "✓";
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      margin-right: 12px;
+      border-radius: 50%;
+      background: rgb(212, 138, 154);
+      color: white;
+      font-weight: bold;
+      flex-shrink: 0;
+      font-size: 11px;
+    }
 
     .hero-text { animation: slideUp 1s ease forwards; opacity: 0; }
     .hero-text-d1 { animation-delay: 0.2s; }
@@ -205,6 +231,10 @@
       .filter-btn {
         padding: 6px 16px;
         font-size: 14px;
+      }
+
+      .service-list li {
+        font-size: 15px;
       }
     }
   </style>
@@ -578,50 +608,180 @@
 
   <!-- Services -->
   <section id="services" class="py-24 px-6 relative" style="background: rgb(253, 243, 240);">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-center mb-16 reveal" style="color: rgb(107, 83, 68); font-weight: 700; font-size: 27px;">My Services</h2>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-center mb-4 reveal" style="color: rgb(107, 83, 68); font-weight: 700; font-size: 27px;">My Services</h2>
+      <p class="text-center mb-16 reveal" style="color: rgb(93, 74, 64); font-weight: 400; font-size: 18px; max-width: 2xl;">Comprehensive design solutions for creative design & digital marketing</p>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         
-        <!-- Service 1: Social Media Design -->
-        <div class="service-card p-8 rounded-3xl shadow-lg reveal" style="background: linear-gradient(135deg, rgb(252, 232, 224), rgb(253, 233, 228));">
-          <div class="mb-4 text-4xl">📱</div>
-          <h3 class="mb-3" style="color: rgb(107, 83, 68); font-weight: 700; font-size: 22px;">Social Media Design</h3>
-          <p style="color: rgb(93, 74, 64); font-weight: 400; font-size: 16px; line-height: 1.6;">Engaging Instagram posts, Stories, Reels, TikToks, and cross-platform graphics that captivate your audience and boost engagement.</p>
+        <!-- Service 1: Graphic Design & Branding -->
+        <div class="service-category p-6 rounded-3xl shadow-lg reveal" style="background: linear-gradient(135deg, rgb(252, 232, 224), rgb(253, 233, 228));">
+          <div class="flex items-center gap-3 mb-5">
+            <span class="text-3xl">🎨</span>
+            <h3 style="color: rgb(107, 83, 68); font-weight: 700; font-size: 20px; margin: 0;">Graphic Design & Branding</h3>
+          </div>
+          <ul class="service-list" style="color: rgb(93, 74, 64);">
+            <li>Logo Design</li>
+            <li>Brand Identity Design</li>
+            <li>Brand Style Guides</li>
+            <li>Rebranding Projects</li>
+            <li>Business Cards & Stationery</li>
+            <li>Packaging & Label Design</li>
+            <li>Marketing Materials</li>
+            <li>Corporate Branding Assets</li>
+          </ul>
         </div>
 
-        <!-- Service 2: Branding -->
-        <div class="service-card p-8 rounded-3xl shadow-lg reveal" style="background: linear-gradient(135deg, rgb(232, 229, 245), rgb(243, 217, 232));">
-          <div class="mb-4 text-4xl">🎨</div>
-          <h3 class="mb-3" style="color: rgb(107, 83, 68); font-weight: 700; font-size: 22px;">Brand Identity</h3>
-          <p style="color: rgb(93, 74, 64); font-weight: 400; font-size: 16px; line-height: 1.6;">Logo design, brand guidelines, color palettes, and visual identity systems that define your brand's personality and values.</p>
+        <!-- Service 2: Social Media & Content Design -->
+        <div class="service-category p-6 rounded-3xl shadow-lg reveal" style="background: linear-gradient(135deg, rgb(232, 229, 245), rgb(243, 217, 232));">
+          <div class="flex items-center gap-3 mb-5">
+            <span class="text-3xl">📱</span>
+            <h3 style="color: rgb(107, 83, 68); font-weight: 700; font-size: 20px; margin: 0;">Social Media & Content</h3>
+          </div>
+          <ul class="service-list" style="color: rgb(93, 74, 64);">
+            <li>Social Media Posts & Stories</li>
+            <li>Carousel Posts</li>
+            <li>Social Media Campaigns</li>
+            <li>Content Creation & Planning</li>
+            <li>Instagram Highlight Covers</li>
+            <li>YouTube Thumbnails</li>
+            <li>Social Media Templates</li>
+            <li>Digital Content Graphics</li>
+          </ul>
         </div>
 
-        <!-- Service 3: Ad Campaigns -->
-        <div class="service-card p-8 rounded-3xl shadow-lg reveal" style="background: linear-gradient(135deg, rgb(253, 233, 228), rgb(252, 232, 224));">
-          <div class="mb-4 text-4xl">🎯</div>
-          <h3 class="mb-3" style="color: rgb(107, 83, 68); font-weight: 700; font-size: 22px;">Ad Campaigns</h3>
-          <p style="color: rgb(93, 74, 64); font-weight: 400; font-size: 16px; line-height: 1.6;">Strategic ad creatives for Facebook, Instagram, Google, and LinkedIn that convert viewers into customers.</p>
+        <!-- Service 3: Advertising & Marketing Design -->
+        <div class="service-category p-6 rounded-3xl shadow-lg reveal" style="background: linear-gradient(135deg, rgb(253, 233, 228), rgb(252, 232, 224));">
+          <div class="flex items-center gap-3 mb-5">
+            <span class="text-3xl">📢</span>
+            <h3 style="color: rgb(107, 83, 68); font-weight: 700; font-size: 20px; margin: 0;">Advertising & Marketing</h3>
+          </div>
+          <ul class="service-list" style="color: rgb(93, 74, 64);">
+            <li>Product Advertisements</li>
+            <li>Promotional Campaign Graphics</li>
+            <li>Event Marketing Materials</li>
+            <li>Email Marketing Designs</li>
+            <li>Digital Ads & Banners</li>
+            <li>Sales & Launch Campaign Creatives</li>
+            <li>E-commerce Marketing Assets</li>
+          </ul>
         </div>
 
-        <!-- Service 4: Product Marketing -->
-        <div class="service-card p-8 rounded-3xl shadow-lg reveal" style="background: linear-gradient(135deg, rgb(232, 229, 245), rgb(253, 233, 228));">
-          <div class="mb-4 text-4xl">📦</div>
-          <h3 class="mb-3" style="color: rgb(107, 83, 68); font-weight: 700; font-size: 22px;">Product Marketing</h3>
-          <p style="color: rgb(93, 74, 64); font-weight: 400; font-size: 16px; line-height: 1.6;">Stunning product mockups, lifestyle photography styling, and e-commerce graphics that showcase your products beautifully.</p>
+        <!-- Service 4: Product & E-commerce Design -->
+        <div class="service-category p-6 rounded-3xl shadow-lg reveal" style="background: linear-gradient(135deg, rgb(232, 229, 245), rgb(253, 233, 228));">
+          <div class="flex items-center gap-3 mb-5">
+            <span class="text-3xl">🛍️</span>
+            <h3 style="color: rgb(107, 83, 68); font-weight: 700; font-size: 20px; margin: 0;">Product & E-commerce</h3>
+          </div>
+          <ul class="service-list" style="color: rgb(93, 74, 64);">
+            <li>Product Mockups</li>
+            <li>Product Listing Images</li>
+            <li>Beauty & Skincare Creatives</li>
+            <li>Amazon & Online Store Graphics</li>
+            <li>Product Launch Visuals</li>
+            <li>Before & After Graphics</li>
+            <li>Product Catalog Design</li>
+          </ul>
         </div>
 
-        <!-- Service 5: Print Design -->
-        <div class="service-card p-8 rounded-3xl shadow-lg reveal" style="background: linear-gradient(135deg, rgb(243, 217, 232), rgb(252, 232, 224));">
-          <div class="mb-4 text-4xl">📄</div>
-          <h3 class="mb-3" style="color: rgb(107, 83, 68); font-weight: 700; font-size: 22px;">Print Design</h3>
-          <p style="color: rgb(93, 74, 64); font-weight: 400; font-size: 16px; line-height: 1.6;">Flyers, posters, brochures, business cards, and banners designed to make an impact both digitally and in print.</p>
+        <!-- Service 5: Web & Digital Design -->
+        <div class="service-category p-6 rounded-3xl shadow-lg reveal" style="background: linear-gradient(135deg, rgb(243, 217, 232), rgb(252, 232, 224));">
+          <div class="flex items-center gap-3 mb-5">
+            <span class="text-3xl">💻</span>
+            <h3 style="color: rgb(107, 83, 68); font-weight: 700; font-size: 20px; margin: 0;">Web & Digital Design</h3>
+          </div>
+          <ul class="service-list" style="color: rgb(93, 74, 64);">
+            <li>Landing Page Design</li>
+            <li>Portfolio Websites</li>
+            <li>Canva Website Design</li>
+            <li>Website Graphics & Banners</li>
+            <li>UI Mockups</li>
+            <li>Digital Asset Design</li>
+            <li>Website Content Visuals</li>
+          </ul>
         </div>
 
-        <!-- Service 6: Web Design -->
-        <div class="service-card p-8 rounded-3xl shadow-lg reveal" style="background: linear-gradient(135deg, rgb(253, 233, 228), rgb(232, 229, 245));">
-          <div class="mb-4 text-4xl">🌐</div>
-          <h3 class="mb-3" style="color: rgb(107, 83, 68); font-weight: 700; font-size: 22px;">Web & UI/UX</h3>
-          <p style="color: rgb(93, 74, 64); font-weight: 400; font-size: 16px; line-height: 1.6;">Landing pages, portfolio websites, and user interface designs that are beautiful, functional, and user-friendly.</p>
+        <!-- Service 6: Interactive & Educational Design -->
+        <div class="service-category p-6 rounded-3xl shadow-lg reveal" style="background: linear-gradient(135deg, rgb(253, 233, 228), rgb(232, 229, 245));">
+          <div class="flex items-center gap-3 mb-5">
+            <span class="text-3xl">🎮</span>
+            <h3 style="color: rgb(107, 83, 68); font-weight: 700; font-size: 20px; margin: 0;">Interactive & Educational</h3>
+          </div>
+          <ul class="service-list" style="color: rgb(93, 74, 64);">
+            <li>Interactive Games (Genially)</li>
+            <li>Educational Learning Games</li>
+            <li>Baby Shower & Party Games</li>
+            <li>Bridal Shower Games</li>
+            <li>Interactive Presentations</li>
+            <li>Quizzes & Assessments</li>
+            <li>Learning Activities & Worksheets</li>
+          </ul>
+        </div>
+
+        <!-- Service 7: Print & Publication Design -->
+        <div class="service-category p-6 rounded-3xl shadow-lg reveal" style="background: linear-gradient(135deg, rgb(252, 232, 224), rgb(243, 217, 232));">
+          <div class="flex items-center gap-3 mb-5">
+            <span class="text-3xl">📄</span>
+            <h3 style="color: rgb(107, 83, 68); font-weight: 700; font-size: 20px; margin: 0;">Print & Publication</h3>
+          </div>
+          <ul class="service-list" style="color: rgb(93, 74, 64);">
+            <li>Flyers & Posters</li>
+            <li>Brochures & Booklets</li>
+            <li>Menus</li>
+            <li>Invitations</li>
+            <li>Certificates</li>
+            <li>Workbooks & Planners</li>
+            <li>Magazines & Catalogs</li>
+          </ul>
+        </div>
+
+        <!-- Service 8: Content & Media Design -->
+        <div class="service-category p-6 rounded-3xl shadow-lg reveal" style="background: linear-gradient(135deg, rgb(232, 229, 245), rgb(252, 232, 224));">
+          <div class="flex items-center gap-3 mb-5">
+            <span class="text-3xl">🎥</span>
+            <h3 style="color: rgb(107, 83, 68); font-weight: 700; font-size: 20px; margin: 0;">Content & Media Design</h3>
+          </div>
+          <ul class="service-list" style="color: rgb(93, 74, 64);">
+            <li>Short Video Editing</li>
+            <li>Reels & TikTok Content</li>
+            <li>Promotional Videos</li>
+            <li>Motion Graphics (Basic)</li>
+            <li>Presentation Videos</li>
+            <li>Visual Storytelling Content</li>
+          </ul>
+        </div>
+
+        <!-- Service 9: Business & Professional Design -->
+        <div class="service-category p-6 rounded-3xl shadow-lg reveal" style="background: linear-gradient(135deg, rgb(243, 217, 232), rgb(253, 233, 228));">
+          <div class="flex items-center gap-3 mb-5">
+            <span class="text-3xl">📊</span>
+            <h3 style="color: rgb(107, 83, 68); font-weight: 700; font-size: 20px; margin: 0;">Business & Professional</h3>
+          </div>
+          <ul class="service-list" style="color: rgb(93, 74, 64);">
+            <li>Presentation Design</li>
+            <li>Pitch Decks</li>
+            <li>Company Profiles</li>
+            <li>Resume/CV Design</li>
+            <li>Portfolio Design</li>
+            <li>Proposal Design</li>
+            <li>Reports & Business Documents</li>
+          </ul>
+        </div>
+
+        <!-- Service 10: Custom Creative Solutions (Full Width) -->
+        <div class="service-category p-6 rounded-3xl shadow-lg reveal lg:col-span-3" style="background: linear-gradient(135deg, rgb(212, 138, 154) 0%, rgb(208, 138, 154) 100%); color: white;">
+          <div class="flex items-center gap-3 mb-5">
+            <span class="text-3xl">✨</span>
+            <h3 style="color: white; font-weight: 700; font-size: 20px; margin: 0;">Custom Creative Solutions</h3>
+          </div>
+          <ul class="service-list" style="color: rgba(255, 255, 255, 0.95);">
+            <li style="border-bottom-color: rgba(255, 255, 255, 0.2);">Canva Templates</li>
+            <li style="border-bottom-color: rgba(255, 255, 255, 0.2);">Digital Products</li>
+            <li style="border-bottom-color: rgba(255, 255, 255, 0.2);">Printable Designs</li>
+            <li style="border-bottom-color: rgba(255, 255, 255, 0.2);">Custom Client Requests</li>
+            <li style="border-bottom-color: rgba(255, 255, 255, 0.2);">Creative Consultation</li>
+            <li>Design Support for Small Businesses & Startups</li>
+          </ul>
         </div>
 
       </div>
