@@ -311,6 +311,40 @@
       .service-list li {
         font-size: 14px;
       }
+      /* GLASSMORPHISM BASE */
+.glass-card {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* SMOOTH BLUR EXPAND ANIMATION */
+.service-content {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: max-height 0.5s ease, opacity 0.4s ease, transform 0.4s ease;
+  padding: 0 20px;
+}
+
+.service-content.active {
+  max-height: 600px;
+  opacity: 1;
+  transform: translateY(0);
+  padding: 20px;
+}
+
+/* soft glow when open */
+.service-dropdown-btn.active {
+  box-shadow: 0 10px 30px rgba(212, 138, 154, 0.25);
+}
+
+.service-dropdown-btn .chevron {
+  transition: transform 0.4s ease;
+}
     }
   </style>
 </head>
@@ -685,7 +719,7 @@
       <div class="service-grid reveal">
         
         <!-- Service 1: Graphic Design & Branding -->
-        <div class="border-2 border-transparent rounded-2xl" style="background: white; box-shadow: 0 4px 15px rgba(107, 83, 68, 0.08);">
+        <div class="glass-card rounded-2xl transition-all duration-300 hover:scale-[1.01]" style="background: white; box-shadow: 0 4px 15px rgba(107, 83, 68, 0.08);">
           <button class="service-dropdown-btn" onclick="toggleService(this)">
             <div class="flex items-center">
               <span class="icon">🎨</span>
@@ -708,7 +742,7 @@
         </div>
 
         <!-- Service 2: Social Media & Content Design -->
-        <div class="border-2 border-transparent rounded-2xl" style="background: white; box-shadow: 0 4px 15px rgba(107, 83, 68, 0.08);">
+        <div class="glass-card rounded-2xl transition-all duration-300 hover:scale-[1.01]" style="background: white; box-shadow: 0 4px 15px rgba(107, 83, 68, 0.08);">
           <button class="service-dropdown-btn" onclick="toggleService(this)">
             <div class="flex items-center">
               <span class="icon">📱</span>
@@ -731,7 +765,7 @@
         </div>
 
         <!-- Service 3: Advertising & Marketing Design -->
-        <div class="border-2 border-transparent rounded-2xl" style="background: white; box-shadow: 0 4px 15px rgba(107, 83, 68, 0.08);">
+        <div class="glass-card rounded-2xl transition-all duration-300 hover:scale-[1.01]" style="background: white; box-shadow: 0 4px 15px rgba(107, 83, 68, 0.08);">
           <button class="service-dropdown-btn" onclick="toggleService(this)">
             <div class="flex items-center">
               <span class="icon">📢</span>
@@ -753,7 +787,7 @@
         </div>
 
         <!-- Service 4: Product & E-commerce Design -->
-        <div class="border-2 border-transparent rounded-2xl" style="background: white; box-shadow: 0 4px 15px rgba(107, 83, 68, 0.08);">
+        <div class="glass-card rounded-2xl transition-all duration-300 hover:scale-[1.01]" style="background: white; box-shadow: 0 4px 15px rgba(107, 83, 68, 0.08);">
           <button class="service-dropdown-btn" onclick="toggleService(this)">
             <div class="flex items-center">
               <span class="icon">🛍️</span>
@@ -775,7 +809,7 @@
         </div>
 
         <!-- Service 5: Web & Digital Design -->
-        <div class="border-2 border-transparent rounded-2xl" style="background: white; box-shadow: 0 4px 15px rgba(107, 83, 68, 0.08);">
+        <div class="glass-card rounded-2xl transition-all duration-300 hover:scale-[1.01]l" style="background: white; box-shadow: 0 4px 15px rgba(107, 83, 68, 0.08);">
           <button class="service-dropdown-btn" onclick="toggleService(this)">
             <div class="flex items-center">
               <span class="icon">💻</span>
@@ -797,7 +831,7 @@
         </div>
 
         <!-- Service 6: Interactive & Educational Design -->
-        <div class="border-2 border-transparent rounded-2xl" style="background: white; box-shadow: 0 4px 15px rgba(107, 83, 68, 0.08);">
+        <div class="glass-card rounded-2xl transition-all duration-300 hover:scale-[1.01]" style="background: white; box-shadow: 0 4px 15px rgba(107, 83, 68, 0.08);">
           <button class="service-dropdown-btn" onclick="toggleService(this)">
             <div class="flex items-center">
               <span class="icon">🎮</span>
@@ -819,7 +853,7 @@
         </div>
 
         <!-- Service 7: Print & Publication Design -->
-        <div class="border-2 border-transparent rounded-2xl" style="background: white; box-shadow: 0 4px 15px rgba(107, 83, 68, 0.08);">
+        <div class="glass-card rounded-2xl transition-all duration-300 hover:scale-[1.01]" style="background: white; box-shadow: 0 4px 15px rgba(107, 83, 68, 0.08);">
           <button class="service-dropdown-btn" onclick="toggleService(this)">
             <div class="flex items-center">
               <span class="icon">📄</span>
@@ -841,7 +875,7 @@
         </div>
 
         <!-- Service 8: Business & Professional Design -->
-        <div class="border-2 border-transparent rounded-2xl" style="background: white; box-shadow: 0 4px 15px rgba(107, 83, 68, 0.08);">
+        <div class="glass-card rounded-2xl transition-all duration-300 hover:scale-[1.01]l" style="background: white; box-shadow: 0 4px 15px rgba(107, 83, 68, 0.08);">
           <button class="service-dropdown-btn" onclick="toggleService(this)">
             <div class="flex items-center">
               <span class="icon">📊</span>
@@ -863,7 +897,7 @@
         </div>
 
         <!-- Service 9: Custom Creative Solutions -->
-        <div class="border-2 border-transparent rounded-2xl" style="background: linear-gradient(135deg, rgb(212, 138, 154) 0%, rgb(208, 138, 154) 100%); box-shadow: 0 4px 15px rgba(212, 138, 154, 0.25);">
+        <div class="glass-card rounded-2xl transition-all duration-300 hover:scale-[1.01]" style="background: linear-gradient(135deg, rgb(212, 138, 154) 0%, rgb(208, 138, 154) 100%); box-shadow: 0 4px 15px rgba(212, 138, 154, 0.25);">
           <button class="service-dropdown-btn" style="color: white; background: transparent;" onclick="toggleService(this)">
             <div class="flex items-center">
               <span class="icon">✨</span>
@@ -976,21 +1010,16 @@
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeModal();
   });
-
-  // Service Dropdown Toggle
-  function toggleService(btn) {
-    const content = btn.nextElementSibling;
-    const isActive = content.classList.contains('active');
-    
-    // Close all other services
+  
+// Service Dropdown Toggle
 function toggleService(btn) {
-  const card = btn.closest('.border-2'); // the whole service box
+  const card = btn.closest('.border-2');
   const content = btn.nextElementSibling;
   const isActive = content.classList.contains('active');
 
-  // ONLY close items inside THIS card group
   const container = card.parentElement;
 
+  // close other services in same grid
   container.querySelectorAll('.service-content').forEach(c => {
     if (c !== content) c.classList.remove('active');
   });
@@ -1008,13 +1037,6 @@ function toggleService(btn) {
     btn.classList.remove('active');
   }
 }
-    
-    // Toggle current service
-    if (!isActive) {
-      content.classList.add('active');
-      btn.classList.add('active');
-    }
-  }
 
   // Filter Skills Functionality
   const filterButtons = document.querySelectorAll(".filter-btn");
