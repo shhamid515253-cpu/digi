@@ -65,15 +65,17 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
-    @media (max-width: 1100px) {
-  grid-template-columns: repeat(2, 1fr);
+   @media (max-width: 1100px) {
+  .service-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
-
-@media (max-width: 600px) {
-  grid-template-columns: 1fr;
+    @media (max-width: 600px) {
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
 }
     
-
 /* SMOOTH BLUR EXPAND ANIMATION */
 .service-content {
   max-height: 0;
@@ -84,13 +86,6 @@
   padding: 0 20px;
 }
 
-.service-content.active {
-  max-height: 600px;
-  opacity: 1;
-  transform: translateY(0);
-  padding: 20px;
-}
-
 /* soft glow when open */
 .service-dropdown-btn.active {
   box-shadow: 0 10px 30px rgba(212, 138, 154, 0.25);
@@ -99,7 +94,6 @@
 .service-dropdown-btn .chevron {
   transition: transform 0.4s ease;
 }
-    }
     .service-dropdown-btn:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 25px rgba(107, 83, 68, 0.12);
@@ -998,32 +992,29 @@
     if (e.key === "Escape") closeModal();
   });
   
-// Service Dropdown Toggle
-function toggleService(btn) {
-  const card = btn.parentElement; // the service card wrapper
-  const content = btn.nextElementSibling;
-  const isActive = content.classList.contains('active');
+  const buttons = document.querySelectorAll(".service-dropdown-btn");
 
-  const container = card.parentElement; // grid
+buttons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    const content = btn.nextElementSibling;
+    const isOpen = btn.classList.contains("active");
 
-  // close others
-  container.querySelectorAll('.service-content').forEach(c => {
-    if (c !== content) c.classList.remove('active');
+    // close all
+    document.querySelectorAll(".service-dropdown-btn").forEach(b => {
+      b.classList.remove("active");
+    });
+
+    document.querySelectorAll(".service-content").forEach(c => {
+      c.style.maxHeight = null;
+    });
+
+    // open clicked one
+    if (!isOpen) {
+      btn.classList.add("active");
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
   });
-
-  container.querySelectorAll('.service-dropdown-btn').forEach(b => {
-    if (b !== btn) b.classList.remove('active');
-  });
-
-  // toggle clicked one
-  if (!isActive) {
-    content.classList.add('active');
-    btn.classList.add('active');
-  } else {
-    content.classList.remove('active');
-    btn.classList.remove('active');
-  }
-}
+});
 
   // Filter Skills Functionality
   const filterButtons = document.querySelectorAll(".filter-btn");
